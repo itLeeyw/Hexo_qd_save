@@ -3,12 +3,34 @@ title: Hexo_grammar
 date: 2019-03-07 13:05:57
 tags:
 ---
-# 写作介绍
+### _本篇博客为Hexo不完全语法_
+
+# 目录
+## 1. 字体介绍
+## 2. 分级标题
+## 3. 超链接
+## 4. 列表
+## 5. 插图
+## 6. 表格
+## 7. 引用
+## 8. 代码
+## 9. 流程图
+
+
 ## 1. 字体介绍
 *这是斜体* 或 _这也是斜体_ 
 **这是粗体**
 ***这是加粗斜体***
 ~~这是删除线~~
+
+<font face="黑体">我是黑体字</font>
+<font face="微软雅黑">我是微软雅黑</font>
+<font face="STCAIYUN">我是华文彩云</font>
+<font color=#0099ff size=7 face="黑体">color=#0099ff size=72 face="黑体"</font>
+<font color=#00ffff size=72>color=#00ffff</font>
+<font color=gray size=72>color=gray</font>
+
+
 ## 2. 分级标题
 # 一级标题
 ## 二级标题
@@ -16,6 +38,8 @@ tags:
 #### 四级标题
 ##### 五级标题
 ###### 六级标题
+
+
 ## 3. 超链接
 写法：
 
@@ -93,12 +117,5 @@ cond(no)->op
 '''
 
 
-## 10. 字体颜色
-<font face="黑体">我是黑体字</font>
-<font face="微软雅黑">我是微软雅黑</font>
-<font face="STCAIYUN">我是华文彩云</font>
-<font color=#0099ff size=7 face="黑体">color=#0099ff size=72 face="黑体"</font>
-<font color=#00ffff size=72>color=#00ffff</font>
-<font color=gray size=72>color=gray</font>
 
 ****

@@ -3,8 +3,35 @@ title: easy-github
 date: 2019-03-07 13:39:25
 tags:
 ---
+
+### _本篇博客主要为 Git与GitHub的交互操作_
+
+# 目录
+## 一、准备工作
+### 1. 安装Git Bash
+### 2. 配置Git Bash
+### 3. 一定运行的命令
+### 4. 配置GitHub
+#### 4. 1 进入Keys配置页
+#### 4. 2 生成🔒
+### 5. 使用Git生成一个本地Key
+## 二、使用Git
+    + 三种方式
+### 1. 初始化并创建仓库
+### 2. bulabula~
+### 3. 总结性发言
+## 三、上传到 GitHub
+### 1. 创建新的仓库（二中已完成）
+### 2. 图操
+### 3. 执行相关命令
+### 3. 5 如果二次Edit file
+### 4. 例子
+### 5. Clone仓库到本地
+## 4. 其他命令
+
+
 # 一、准备工作
-## 1. 安装Git Bash
+### 1. 安装Git Bash
 ### [下载链接](https://pan.baidu.com/s/1op0QmiOBZD-sYduV2B9yNw)提取码：uxb0 
 ### 2.下面就随便[配置](http://www.baidu.com)一下界面字体什么
 -----
@@ -18,7 +45,7 @@ git config --global core.editor "vim"                                           
 
 '''
 
-### 配置GitHub
+### 4. 配置GitHub
 #### 1. 进入https://github.com/settings/keys (肯定得配置一个🔒和🔑嘛~
 #### 2. 咋在git上面***生成***一个🔒
 ```
@@ -26,7 +53,7 @@ ssh-keygen -t rsa -b 4096 -C "你的邮箱" (回车三次)
 cat ~/.ssh/id_rsa.pub   （复制key到key）
 Add SSH key 配置完成~
 ```
-### 3. Git运行
+### 5. Git运行
 `ssh -T git@github.com` (输入yes~)
 #### 出现Permission denied (publickey).就是失败，Hi FrankFang! You've successfully authenticated, but GitHub does not provide shell access. 就说明你成功了！
 
@@ -91,7 +118,7 @@ Add SSH key 配置完成~
     6. git log 查看变更历史
 
 ----
-# 上传到GitHub
+# 三、上传到GitHub
     1. 创建一个新的仓库
     2. 下为图操
     ![点击SSH](https://video.jirengu.com/FqewHjBnXJH9_TAeV_JaC3gGVFsT "ssh")
@@ -103,3 +130,43 @@ Add SSH key 配置完成~
         3. 得到新的命令 git remote add origin git@github.com:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/git-demo-1.git，复制并运行它
         4. 复制第二行 git push -u origin master，运行它
         5. 刷新当前页面，你的仓库就上传到 GitHub 了！
+## 如何上传更新
+'''
+git add 文件路径
+git commit -m "信息"
+git pull （如果其他人提前更新仓库，你得先下载（更新）仓库）
+git push
+'''
+###例子
+'''
+cd git-demo-1
+touch index2.html
+git add index2.html
+git commit -m "新建 index2.html"
+git pull
+git push
+'''
+
+## 如何下载Github已有的仓库到本地
+![图解](https://video.jirengu.com/FkftOFnWOoe3W6SKetIjskFZun1p "图解")
+1. 关键命令 git clone
+![下载](https://video.jirengu.com/Fh5OogA65vQk3_r78zxMNhb7pWYW 'download')
+
+### 开始***clone***
+
+1. 确保弹出层里的地址是 SSH 地址，也就是 git@github.com 开头的地址，如果不是，就点击 Use SSH 按钮。然后复制这个地址。
+2. 打开 Git Bash，找一个安全的目录，比如 ~/Desktop 桌面目录就很安全：cd ~/Desktop。运行。
+3. 运行 git clone 你刚才得到的以git@github.com开头的地址，运行完了你就会发现，桌面上多出一个 git-demo-2 目录。
+4. 进入这个多出来的目录
+5. 运行 ls -la 你会看到，远程目录的所有文件都在这里出现了，另外你还看到了 .git 本地仓库。这是你就可以添加文件，git add，然后 git commit 了。
+
+## 4.其他命令
++ git remote add origin git@github.com:xxxxxxx.git 将本地仓库与远程仓库关联
++ git remote set-url origin git@github.com:xxxxx.git 上一步手抖了，可以用这个命令来挽回
++ git branch 新建分支
++ git merge 合并分支
++ git stash 通灵术
++ git stash pop 反转通灵术
++ git revert 后悔了
++ git reset 另一种后悔了
++ git diff 查看详细变化
