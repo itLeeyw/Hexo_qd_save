@@ -179,8 +179,18 @@ clear: both;
     >Q: border-box和content-box有什么区别鸭？
             A:  border-box 是包含padding,margin border的和的面积
                 content-box 真正的面积是不把padding margin border包含在内容中的大小
-                
+    >Q: 为啥我的内联元素在下设置了padding 和 margin 依然没有得到我想要的效果？
+            A: 因为内联元素不是block 只能设置padding的左右间距不能改变上下，必须要设display:inline-block才能撑起来
+               内联元素无法通过margin 0px auto；来达到居中效果，必须使用到他的父标签,在父标签上设置text-align:center才能实现居中
+    
+    >Q：我想对所有的动画效果有一个延时进行 怎么办?
+            A: transition: all Xs;
 
+    >Q: 如何将文字光标改成指针光标？
+           A:  cursor: pointer;
+
+    >Q: 我对内联元素使用了display:inline-block;以后bottom会多出一小截距离咋办？
+           A: 这是bug 我们可以使用vertical-align:top；来解决这个bug(有时候也不会出现这种bug)
 ![border-box](https://i.loli.net/2019/03/11/5c85edd2eafdc.png "border-box")
 
 ![content-box](https://i.loli.net/2019/03/11/5c85edf40bfd5.png "content-box")
