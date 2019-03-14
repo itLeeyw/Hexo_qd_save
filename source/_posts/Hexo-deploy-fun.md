@@ -60,3 +60,16 @@ tags:
 
 
 ## 5.主题设置
+```
+https://github.com/hexojs/hexo/wiki/Themes 上面有主题合集
+随便找一个主题，进入主题的 GitHub 首页，比如我找的是 https://github.com/iissnan/hexo-theme-next
+复制它的 SSH 地址或 HTTPS 地址，假设地址为 git@github.com:iissnan/hexo-theme-next.git
+cd themes
+git clone git@github.com:iissnan/hexo-theme-next.git
+cd ..
+将 _config.yml 的第 75 行改为 theme: hexo-theme-next，保存
+hexo generate
+hexo deploy
+等一分钟，然后刷新你的博客页面，你会看到一个新的外观。如果不喜欢这个主题，就回到第 1 步，重选一个主题。
+
+```

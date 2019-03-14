@@ -9,28 +9,29 @@ tags:
 
 
 # *目录*
-### 1.几种CSS的引入方式
-### 2. a标签踩坑
-### 3. float的魅力
-### 4. CSS的常用单位
-### end tips
+   ### 1.几种CSS的引入方式
+   ### 2. a标签踩坑
+   ### 3. float的魅力
+   ### 4. CSS的常用单位
+   ### 5. CSS布局问题
+   ### end tips
 
 
 > #### 做前端啊，要回使用各种测量工具,QQ截图，colorpix,FSCapture..
 -------------
-### 1.几种CSS的引入方式
+### 1. 几种CSS的引入方式
 1. 直接在标签内写（已经被淘汰）
 `<body bgcolor="grey">第一种</body>`
 2. 使用style属性
 `<body style="background-color:grey">第二种</body>`
 3.使用style标签 内联
 ```
-    <style>
+<style>
         body{
-            background-color:grey;
-            color:red;
+        background-color:grey;
+        color:red;
         }
-    </style>
+</style>
 ```
 4. link标签 外联
 `<link rel="stylesheet" href='外联样式表路径，绝对相对路径都行'>`
@@ -91,6 +92,113 @@ clear: both;
 
    #### 7. vm
    > css3新单位，相对于视口的宽度或高度中较小的那个。其中最小的那个被均分为100单位的vm举个例子：浏览器高度900px，宽度1200px，取最小的浏览器高度，1 vm = 900px/100 = 9 px。
+
+
+
+### 5. CSS布局问题（超大量图文警告）
+> #### css的水平对齐&垂直对齐问题一直是让人摸不着头脑的知识，这一章节将让你深入了解css的对齐方法
+
+   #### 1. 将会用到的关键字
+```
+    1. margin 外边距
+    2. padding 内边距
+    3. auto  自动
+    4. top   上
+    5. right 右
+    6. bottom   下
+    7. left  左
+    8. float 浮动
+    9. table 表单
+    10. position 定位
+    11. relative  相对定位
+    12. absolute 绝对定位
+    12.5. fixed 固定定位
+    13. box-sizing 盒子样式
+    14. border-box 边框盒子 /具体可以在本篇博客收到具体解释
+    15. conten-box 内容盒子 /具体同上
+    16. display 陈列关键字
+    17. flex 伸缩模型
+    ... 
+```
+   ##### 2.两栏布局理解以及具体实现方法
+   > 两个盒子平行布局
+   ##### 原样式
+   
+   ![原样](https://i.loli.net/2019/03/14/5c89e19b3ef58.png)
+   
+   ##### float 实现
+   ![float](https://i.loli.net/2019/03/14/5c89e24ac81a4.png)
+   + #### 这里要注意，float实现会导致元素错位和坍塌（如何解决）
+   
+   ![坍塌问题](https://i.loli.net/2019/03/14/5c89e795d2331.png)
+   
+>   ##### 2.绝对定位
+
+![绝对定位](https://i.loli.net/2019/03/14/5c89e88d220ea.png)   
+   + #### 相对定位和绝对定位是什么？
+   ```
+    通常情况下 position 的默认值是static,就是没有定位。
+    如果设置了position 其他属性那么就会脱离文档流
+    则可以通过left top right bottom等操作进行对元素块的控制
+    # 一般来说只有设置了position 才可以使用 top left等操作，z-index也无法生效
+   ```
+> ##### 相对定位 raletive
++ > ###### 相对定位并不脱离文档流
+    一般两个配合使用，但是也可以单独使用，需要注意的是，raletive在进行元素偏移以后仍然占据没有偏移之前的空间，（偏移不是边距，相当于∪）
+
+![相对定位.PNG](https://i.loli.net/2019/03/14/5c8a303ebed7f.png)
+
+> ##### 绝对定位 absolute
++   > 绝对定位脱离文档流
+    
+```
+    在布置文档流中文件时，绝对定位元素不会占据空间。
+    绝对定位元素相对于最近的非static祖先元素做绝对定位，当这样的祖先元素不存在的时候，则相对ICB(initel container block 初始包含块)
+
+```
+
+![捕获.PNG](https://i.loli.net/2019/03/14/5c8a33ade5f1a.png)
+
+#### 2. 三栏布局
+> 一般为两边固定，中间自适应
++ > 1. 使用margin手动自适应 -_-||
+![margin.PNG](https://i.loli.net/2019/03/14/5c8a373c80bfa.png)
++ > 2. 使用左右栏浮动的方法再进行margin
+
+![左右栏浮动.PNG](https://i.loli.net/2019/03/14/5c8a396e67cee.png)
+
++ > 3. 使用[flex](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex)布局实现（弹性盒子） 
+
+![flex.PNG](https://i.loli.net/2019/03/14/5c8a397580481.png)
+
++ > 4. 使用table布局(将容器变为单元格子table-cell)
+        > + 高度由文档流决定
+![捕获.PNG](https://i.loli.net/2019/03/14/5c8a3a68e5c4b.png)
+
++ > 5. 使用gird布局（设置行高和列，与table有异曲同工之处）
+
+![gird布局.PNG](https://i.loli.net/2019/03/14/5c8a3b4b28254.png)
+
+
++ > 6. 圣杯布局
+    >> + 圣杯布局和双飞翼布局 实现的都是三栏布局，两边的盒子宽度固定，中间盒子自适应
+    
++ > 7. 双飞翼布局 (用的少，直接用flex就ok了 以后去面试的时候可以背一下~)
+
+
+# 参考文献:
+[详解七种CSS布局方法](https://blog.csdn.net/ganyingxie123456/article/details/77054124)
+[position mdn](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position)
+[float mdn](https://developer.mozilla.org/zh-CN/docs/CSS/float)
+[flex mdn](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex)
+[table mdn](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/table)
+
+-------------------
+
+
+
+
+
 
 ### end-tips(很杂，随便看看)
 

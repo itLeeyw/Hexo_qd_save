@@ -3,10 +3,12 @@ title: css-history
 date: 2019-03-10 14:26:33
 tags:
 ---
-# **easy-Css**
+# **css-base*
 
 # *目录*
 ### 1.CSS历史 
+### 2.CSS进阶
+### 3.CSS学习
 
 ### 1.CSS历史
 + #### 1994年哈肯·维姆·莱提出了CSS的最初建议。伯特·波斯（Bert Bos）当时正在设计一个叫做“Argo”的浏览器，他们决定一起合作设计CSS。
@@ -26,3 +28,13 @@ tags:
     一种简化、功能更多的 CSS 语言（请自行搜索中英文官网）
 + PostCSS
     一种 CSS 处理程序
+
+### 3.CSS学习资料
+1. [Google:关键字MDN](https://www.google.com.hk/webhp?hl=zh-CN&sourceid=cnhp&gws_rd=ssl)
+2. [CSS Tricks](https://css-tricks.com/)
+3. [Google： 阮一峰 CSS](https://www.google.com/search?q=%E9%98%AE%E4%B8%80%E5%B3%B0+css)
+4. [张鑫旭的CSS](http://www.zhangxinxu.com/wordpress/category/css/page/25/)
+5. [Codrops 炫酷CSS效果](https://tympanus.net/codrops/category/playground/)
+6. [CSS揭秘](http://www.ituring.com.cn/book/1695)
+7. [CSS space ch](http://cndevdocs.com/)
+8. [Magic of CSS 免费在线书](http://adamschwartz.co/magic-of-css/)
