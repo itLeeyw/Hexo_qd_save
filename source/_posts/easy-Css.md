@@ -299,6 +299,8 @@ clear: both;
 
     >Q: 我对内联元素使用了display:inline-block;以后bottom会多出一小截距离咋办？
            A: 这是bug 我们可以使用vertical-align:top；来解决这个bug(有时候也不会出现这种bug)
+    >Q: 为什么我的body 无法占满屏幕 有间距
+           A: 因为这是body自带的8像素margin
 ![border-box](https://i.loli.net/2019/03/11/5c85edd2eafdc.png "border-box")
 
 ![content-box](https://i.loli.net/2019/03/11/5c85edf40bfd5.png "content-box")
