@@ -59,10 +59,12 @@ Add SSH key 配置完成~
 
 ## ok、SSH key添加好了
 
-```一台电脑只需要一个SSH key
+```
+一台电脑只需要一个SSH key
 它用来访问你的仓库，all
 如果你新买了一台电脑，就再用以上方法Add SSH key
-如果你删除了key，就重新生成一个key，替换之前的key```
+如果你删除了key，就重新生成一个key，替换之前的key
+```
 
 
 --------------
@@ -119,7 +121,7 @@ Add SSH key 配置完成~
 
 ----
 # 三、上传到GitHub
-    1. 创建一个新的仓库
+    1. 创建一个新的仓库(new时候什么都不选择才能得到真正空的仓库)
     2. 下为图操
     ![点击SSH](https://video.jirengu.com/FqewHjBnXJH9_TAeV_JaC3gGVFsT "ssh")
     ![简单介绍](https://video.jirengu.com/Fta476rO6oPJIgxbIec8vINTZV3E)
@@ -130,7 +132,7 @@ Add SSH key 配置完成~
         3. 得到新的命令 git remote add origin git@github.com:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/git-demo-1.git，复制并运行它
         4. 复制第二行 git push -u origin master，运行它
         5. 刷新当前页面，你的仓库就上传到 GitHub 了！
-## 如何上传更新
+## 如何上传更新(上传时候添加一个.gitignore的文件里面添加你想要忽视的文件或者文件夹，则可以再commit时候忽略掉)
 '''
 git add 文件路径
 git commit -m "信息"
