@@ -323,3 +323,246 @@ tags:
 > onmouseover and onmouseout 会在鼠标在标签对象上或离开标签对象上时发生
 
 > onmousedown and onmouseup and onclick 事件是所有的mouse-click，第一个会在鼠标点击的时候发生，第二个会在鼠标释放的时候发生，第三个会在鼠标点击完成后发生
+
+
+## JavaScript HTML DOM EventListener
+ >  添加一个监听方法
+ >  The addEventListener() method
+
+   
+    //当用户点击按钮的时候触发时间监听   document.getElementById("myBth").addEventListener("click",displayDate)
+
+> 1.addEventListener()将时间处理程序添加到指定的元素上
+>
+> 2.且它不会覆盖已有的事件处理程序
+> 
+> 3.你可以给除了HTML 元素的其他元素如windows object等某一元素添加多个处理事件（也可以是同一触发条件触发的多个事件处理程序）
+> 
+> 4.它同样可以更容易的处理和控制事件的冒泡行为
+> 
+> 5.使用它的时候可以为你带来更好的可读性，且JavaScript于HTML标记分离开处理，允许你添加事件监听，即便你不控制HTML的标记
+> 
+> 6.你可以使用它更简单的移除掉事件监听 通过removeEventListener()
+
+Syntax:   
+
+    element.addEventListener(event, function, useCapture);
+first parameter : 事件类型，"click" or "mousedown"..
+secand parameter : 处理函数
+third parameter : 是否指定冒泡捕获，用Boolean value 确定，可选参数
+> onclick != click
+> click 是对象的方法，  onclick是事件，
+> 我们在点击按钮时会先执行onclick 然后执行click，因为onclick是点击事件，首先触发事件，然后触发事件的点击方法，
+> 得出，我们即便不添加点击方法(click) 也会触发点击事件~~~
+
+> 给一个元素添加一个事件处理程序
+
+> 让一个元素在触发点击方法的时候弹出“hello world”的alert
+    
+    element.addEventListener("click", function(){ alert("Hello World!"); });
+
+> 当然 ，你也可以引用外部函数
+
+    element.addEventListener("click", myFunction);
+    function myFunction() {
+    alert ("Hello World!");
+    }
+    
+> 给同一个元素添加多个事件处理程序
+
+    element.addEventListener("click", myFunction);
+    element.addEventListener("click", mySecondFunction);
+> 此时会按照程序顺序依次执行事件处理程序
+
+> 将不同类型的处理函数添加到同一元素中
+
+    element.addEventListener("mouseover", myFunction);
+    element.addEventListener("click", mySecondFunction);
+    element.addEventListener("mouseout", myThirdFunction);
+
+> 在window object上添加事件处理程序
+> > 你可以在任何HTML DOM 上使用addEventListener()添加事件监听处理，(如：xmlHttpRequest Object
+
+> 用户改变窗口大小时的事件监听
+
+    window.addEventListener("resize", function(){  
+    document.getElementById("demo").innerHTML = sometext;
+    });
+
+> 传递参数
+> 在用户触发事件时可做传递参数的函数使用
+
+    element.addEventListener("click", function(){ myFunction(p1, p2); });
+
+> 事件的冒泡和捕获？
+> >HTML DOM 中有两种方式传递事件，1. 冒泡 2.捕获
+> >事件的传播是一种定义元素发生时事件时顺序的的方法？？
+> >例如：<div>中<p>的click被点击，先触发那个的click？
+
+>所以我们可以通过第三个参数来控制，当为false时则采用冒泡，
+
+>若为ture时 则采用捕获
+
+    document.getElementById("myP").addEventListener("click", myFunction, true);
+    document.getElementById("myDiv").addEventListener("click", myFunction, true);
+
+> 可以通过removeEventListener()来移除已有的处理程序
+
+## DOM Nodes
+> 根据W3C标准，一切东西在HTML document中都是一个Node(节点)
+
+* 文档是文档节点
+* 所有的元素是元素节点
+* 在HTML 元素中的文本是文本节点
+* 所有的属性是属性节点（弃用）
+* 所有的注释都是注释节点
+
+> JavaScript能访问所有存在于节点数中的节点
+>  可以对节点进行增删改的操作 
+
+
+> 节点之间的关系
+
+> 显而易见，结点之间有着层级关系
+> 
+> 他们之间通过，parent,child,sibling来组成的关系网
+
+* 在节点树种，最顶上的节点就是root，称为根节点
+* 除根节点之外，所有的节点都有一个爸爸节点parent
+* 一个节点可以有很多的子节点
+* siblings 有相同的parent
+
+> 节点与节点之间的跳转，导航
+> > JavaScript可以使用以下一些属性在节点直接跳转
+
+* parentNode//爸爸节点
+* childNodes[nodenumber] //儿子们节点
+* firstChild //第一个儿子节点
+* lastChild//最后一个儿子节点
+* nextSibling //下一个兄弟节点
+* perviousSibling//上一个兄弟节点
+* 小操作：获取到你爸爸节点的儿子们节点，排除自己就能获取到所有的兄弟节点辣
+
+> 子节点和节点值
+> DOM 经常会让你想获取的期望节点种含有文本
+> 元素节点中的文本节点可以通过innerHTML访问
+> innerHTML方法和访问元素节点的第一个子节点的nodeValue的值一样
+> 或者直接使用childNodes[0].nodeValue 的结果一样
+
+> nodeName Property总是会返回一个大写的tag name
+> nodeValue 返回一个指定节点的值
+
+ * 如果是一个元素节点则返回null
+ * 如果是一个文本节点则返回文本
+ * 如果是一个属性节点，则返回属性的值
+
+> nodeType Property 返回节点的类型
+
+* ELEMENT_NODE   === 1
+* ATTRIBUTE_NODE  === 2
+* TEXT_NODE === 3
+* COMMENT_NODE === 8 
+*  DOCUMENT_NODE === 9
+*  DOCUMENT_TYPE_NODE === 10
+
+## JavaScript HTML DOM Element(Nodes)
+> 添加或者删除元素节点
+
+> 创建一个新的元素节点首先需要创建一个元素，然后将这个元素添加到已有的元素当中去
+    
+    document.createElement(TagName)
+    document.createTextNode(TextContent)
+    appendChild(Node)
+    element.appendChild(NodeElement)
+    
+> 创建一个新的元素---->insertBefore()
+> > appendChild()方法在上面的列子中，添加了一个新的元素在parent的last Children
+> > 如果你不想那样，则可以使用insertBefore()方法
+> > parent.insertBefore(newNode,child)//将newNode节点添加到child之前
+
+> 删除一个已有的元素
+> 删除一个已有的元素，你首先得知道它的父亲元素
+
+    var parent = document.getElementById("div1");
+    var child = document.getElementById("p1");
+    parent.removeChild(child);
+    
+>//IE所有的版本都不兼容node.remove()方法 
+
+
+>替换某个元素
+>>如果你要在HTML DOM中替换某个元素，就使用replaceChild() 方法
+>> first find parent element then find 你要替换的元素，然后通过你已经创建好的新元素使用replaceChild(para,child)来替换
+
+    
+    var para = document.createElement("p");
+    var node = document.createTextNode("This is new.");
+    para.appendChild(node);
+    var parent = document.getElementById("div1");
+    var child = document.getElementById("p1");
+    parent.replaceChild(para, child);
+
+
+## JavaScript HTML　DOM　Colection
+
+> 对于HTMLCollection 对象
+> > 对于getElementByTagName()方法，他会return一个HTMLCollection对象
+> > 一个HTMLCollection 对象是一个在HTML Element中的一个类似数组的列表（collection）
+
+
+Example:
+    
+      var x = document.getElementByTagName(Tag)
+> 我们可以使用index number来访问collection的元素
+> 例如 访问第二个tag元素我们可以这样写：
+
+    y = x[1]//index number 从 0 开始
+    
+> HTML 中HTMLCollection 的长度
+>> 对于length属性是在colection中的元素数量
+
+       var myCollection = document.getElementsByTagName("p");
+    document.getElementById("demo").innerHTML = myCollection.length;
+    
+    1. 创建一个p的collection
+    2. 获取到collection的长度
+    
+> 长度的作用 可以让你loop完所有的元素  好用的一匹
+        
+    var myCollection = document.getElementsByTagName("p");
+    var i;
+    for (i = 0; i < myCollection.length; i++) {  
+    myCollection[i].style.backgroundColor = "red";
+    }
+    
+  > An HTMLCollection is NOT an array!
+  > HTML collection 不是不是不是一个数组啊啊啊！！
+  > 它看起来像，但它不是
+  > 你可以遍历列表和get单个元素，这让他看起来像一个数组
+  > 然鹅，你不能在HTMLCollection上使用Array的方法
+  > push pop valueOf join .... 这些都不行
+  
+  ## JavaScript HTML DOM Node Lists
+  > 关于HTML DOM Nodelist 对象
+
+* NodeList 对象是一个List(collection)它从document中提取出来
+* NodeList 对象几乎等同于HTMLCollection 对象
+* 一些浏览器会返回NodeList对象来代替HTMLCollection对象对于getElementByClassName()方法
+* 所有浏览器使用childNodes方法都会返回NodeList对象
+* 大部分的浏览器使用querySelectorAll()方法会返回一个NodeList对象
+
+
+> HTML DOM Node List Length
+> MyNodelist.length
+
+> HTMLCollection 和 NodeList 有什么不同
+
+1. HTMLCollection是collection的HTML元素
+2. NodeList是collection的Document节点
+3. NodeList和HTML collection有很多相同的东西(功能)
+4. HTMLCollection和NodeList都是类似数组的集合
+5. 两者都有length，用于记录列表中的item数目
+6. 两个都提供了index(0,1,2,3,4..)访问
+7. 可以通过items name id 来访问HTMLCollection
+8. NodeList只能通过索引访问
+9. 只有NodeList含有属性节点和文本节点
