@@ -70,12 +70,14 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate,MigrateCommand
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////opt/db.sqlite' #使用sqlite3数据库
+app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config['SQLALCHEMY_DATABASE_URI'] = '你的数据库路径(相关格式百度)' #使用你的数据库
 db = SQLAlchemy(app)  #ORM
 
 migrate = Migrate(app,db)
 manager = Manager(app)
-manager.add_comman('db',MigrateCommand) #添加db 命令（runserver的用法）
+manager.add_command('db',MigrateCommand) #添加db 命令（runserver的用法）
 
 #一个用户表
 class User(db.Model):
