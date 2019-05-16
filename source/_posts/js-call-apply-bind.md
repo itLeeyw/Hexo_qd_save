@@ -124,3 +124,9 @@ tags:
                 }
             }
         }
+        
+### 参考文献
+[参考1](https://github.com/lin-xin/blog/issues/7)
+[bind参考](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
+[call参考](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
+[apply参考](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
