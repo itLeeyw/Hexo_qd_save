@@ -280,10 +280,14 @@ clear: both;
     >Q: position里面fixed和absolute有什么区别鸭！？
             A:fixed 相对于网页窗口绝对定位
               absolute 相对于离自己最近的relative祖先绝对定位
-    
+
+    >Q: 为什么我 left 50%居中以后发现我的元素并没有真正居中
+            A: 因为50%居中是按照你左边基准线对齐
+                可以通过左移你元素一半宽度距离来实现视觉对齐
+
     >Q:  为啥我float以后感jio我有些地方变窄了？
             A:  因为float会默认压缩鸭
-            
+
     >Q: border-box和content-box有什么区别鸭？
             A:  border-box 是包含padding,margin border的和的面积
                 content-box 真正的面积是不把padding margin border包含在内容中的大小
