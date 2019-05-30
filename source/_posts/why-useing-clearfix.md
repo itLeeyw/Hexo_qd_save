@@ -60,8 +60,8 @@ tags: clearfix,清除浮动，闭合浮动,BFS,CSS,HTML
     }
 
 
-#### plan 2: 添加<br/ clear="both">标签，通过其本身HTML特性
-   * 在浮动元素的父元素下添加一个last child 标签为<br/ clear="both">
+#### plan 2: 添加<br clear="both" />>标签，通过其本身HTML特性
+   * 在浮动元素的父元素下添加一个last child 标签为<br clear="both" />
    * OK!
    * 
 
